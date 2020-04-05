@@ -10,6 +10,9 @@ import { ProfileComponent } from './profile/profile.component';
 import { CampusAdminComponent } from './campus-admin/campus-admin.component';
 import { CampusModeratorComponent } from './campus-moderator/campus-moderator.component';
 import { CampusUserComponent } from './campus-user/campus-user.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { authInterceptorProviders } from './helpers/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -24,9 +27,11 @@ import { CampusUserComponent } from './campus-user/campus-user.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
